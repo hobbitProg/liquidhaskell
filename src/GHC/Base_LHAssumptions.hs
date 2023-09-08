@@ -8,9 +8,9 @@ import GHC.Base
 import Data.Tuple_LHAssumptions()
 
 {-@ measure len @-}
-len :: [a] -> GHC.Types.Int
-  len []     = 0
-  len (y:ys) = 1 + len ys
+len :: [a] -> Int
+len [] = 0
+len (_:ys) = 1 + len ys
 
 {-@
 
