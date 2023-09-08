@@ -1,5 +1,4 @@
 {-# OPTIONS_GHC -Wno-unused-imports #-}
-{-@ LIQUID "--reflection" @-}
 module GHC.Base_LHAssumptions where
 
 import GHC.CString_LHAssumptions()
@@ -21,7 +20,7 @@ measure autolen :: forall a. a -> GHC.Types.Int
 //  Useless as compiled into GHC primitive, which is ignored
 assume GHC.Base.assert :: {v:Bool | v } -> a -> a
 
-instance measure len :: forall a. [a] -> GHC.Types.Int
+measure len :: forall a. [a] -> GHC.Types.Int
   len []     = 0
   len (y:ys) = 1 + len ys
 
