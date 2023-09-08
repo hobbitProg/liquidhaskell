@@ -20,7 +20,7 @@ measure autolen :: forall a. a -> GHC.Types.Int
 //  Useless as compiled into GHC primitive, which is ignored
 assume GHC.Base.assert :: {v:Bool | v } -> a -> a
 
-measure len :: forall a. [a] -> GHC.Types.Int
+instance measure len :: forall a. [a] -> GHC.Types.Int
   len []     = 0
   len (y:ys) = 1 + len ys
 
