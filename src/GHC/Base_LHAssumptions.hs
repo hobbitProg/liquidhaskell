@@ -1,4 +1,5 @@
 {-# OPTIONS_GHC -Wno-unused-imports #-}
+{-@ LIQUID "--reflection" @-}
 module GHC.Base_LHAssumptions where
 
 import GHC.CString_LHAssumptions()
