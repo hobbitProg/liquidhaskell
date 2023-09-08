@@ -7,7 +7,7 @@ import GHC.Types_LHAssumptions()
 import GHC.Base
 import Data.Tuple_LHAssumptions()
 
-{measure len}
+{-@ measure len @-}
 len :: [a] -> GHC.Types.Int
   len []     = 0
   len (y:ys) = 1 + len ys
