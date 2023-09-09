@@ -21,7 +21,7 @@ measure autolen :: forall a. a -> GHC.Types.Int
 assume GHC.Base.assert :: {v:Bool | v } -> a -> a
 
 instance measure len :: forall a. [a] -> GHC.Types.Int
-  len (GHC.Types.([]))     = 0
+  len (GHC.Types.[]))     = 0
   len (y GHC.Types.(:) ys) = 1 + len ys
 
 invariant {v: [a] | len v >= 0 }
