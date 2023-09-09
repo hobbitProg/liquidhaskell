@@ -7,12 +7,6 @@ import GHC.Types_LHAssumptions()
 import GHC.Base
 import Data.Tuple_LHAssumptions()
 
-{-@ len :: [a] -> Int @-}
-{-@ measure len @-}
-len :: [a] -> Int
-len [] = 0
-len (_:ys) = 1 + len ys
-
 {-@
 
 assume GHC.Base.. :: forall <p :: b -> c -> Bool, q :: a -> b -> Bool, r :: a -> c -> Bool>.
@@ -25,6 +19,10 @@ measure autolen :: forall a. a -> GHC.Types.Int
 
 //  Useless as compiled into GHC primitive, which is ignored
 assume GHC.Base.assert :: {v:Bool | v } -> a -> a
+
+instance measure len :: forall a. [a] -> GHC.Types.Int
+  len []     = 0
+  len (y:ys) = 1 + len ys
 
 invariant {v: [a] | len v >= 0 }
 assume GHC.Base.map       :: (a -> b) -> xs:[a] -> {v: [b] | len v == len xs}
