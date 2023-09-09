@@ -1,5 +1,6 @@
 {-# LANGUAGE MagicHash #-}
 {-# OPTIONS_GHC -Wno-missing-signatures #-}
+{-@ LIQUID "--exact-data-con" @-}
 module GHC.Types_LHAssumptions() where
 
 import GHC.Types
